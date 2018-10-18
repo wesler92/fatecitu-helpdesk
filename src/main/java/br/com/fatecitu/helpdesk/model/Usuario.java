@@ -9,6 +9,7 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    private char tipo;
 
     public int getCodigo() {
         return codigo;
@@ -42,6 +43,14 @@ public class Usuario {
         this.senha = senha;
     }
 
+    public char getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(char tipo) {
+        this.tipo = tipo;
+    }
+    
     @Override
     public String toString() {
         return "Usuario{" + "codigo=" + codigo + ", nome=" + nome + ", email=" + email + ", senha=" + senha + '}';
