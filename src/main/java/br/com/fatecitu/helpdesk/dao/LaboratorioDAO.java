@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.fatecitu.helpdesk.model.Laboratorio;
-
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 public class LaboratorioDAO {
 	
-	
 	public void salvar(Laboratorio laboratorio){
-		//TODO Save object
+		
 	}
 	
 	public void alterar(Laboratorio laboratorio) {
