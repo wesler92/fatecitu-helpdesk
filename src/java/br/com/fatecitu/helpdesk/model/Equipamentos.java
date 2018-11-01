@@ -11,12 +11,13 @@ package br.com.fatecitu.helpdesk.model;
  */
 public class Equipamentos {
     private int codEquipamento;
+    private String tipo;
     private String descricao;
     private int codLaboratorio;
     
     @Override
     public String toString() {
-        return "Equipamentos{" + "codigo=" + this.codEquipamento + ", descricao=" + this.descricao + ", codigoLaboratorio=" + this.codLaboratorio + "}";
+        return "Equipamentos{" + "codigo=" + this.codEquipamento + "tipo="+this.tipo + ", descricao=" + this.descricao + ", codigoLaboratorio=" + this.codLaboratorio + "}";
     }
     
     /**
@@ -34,6 +35,20 @@ public class Equipamentos {
     }
 
     /**
+     * @return the tipo
+     */
+	 public String getTipo(){
+		 return this.tipo;
+	 }
+	 	 
+	 /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }	 
+	 
+	 /**
      * @return the descricao
      */
     public String getDescricao() {
