@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="pt-br" 
+        xmlns="http://www.w3.org/1999/xhtml" 
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head jsf:id="head">
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+        <title>Alterar Equipamento - Helpdesk</title>
+    </head>
+    <body jsf:id="body">
+        <div class="container">
+            <form jsf:id="form">
+            
+            	<div class="form-row">
+                	<div class="form-group col-md-12">
+						<label >Busque equipamentos por seu código</label>
+						<select  class="form-control" >
+							<option jsf:value="#{equipamentoBean.addCodEquipamento()}">#{equipamentoBean.equipamento.codEquipamento}</option>
+						</select>
+					</div>
+                </div>
+            	<div class="form-row">
+	                <div class="form-group col-md-6">
+	                	<label for="codigo">Código do equipamento</label>
+	                	<input class="form-control" jsf:id="codigo" type="text" jsf:value="#{equipamentoBean.equipamento.codEquipamento}" placeholder="Código do equipamento" />
+                	</div>
+                	<div class="form-group col-md-6">
+	                	<label for="tipo">Tipo do equipamento</label>
+	                	<input class="form-control" jsf:id="tipo" type="text" jsf:value="#{equipamentoBean.equipamento.tipo}" placeholder="PC" />
+                	</div>
+                	
+                </div>
+                <div class="form-row">
+                	<div class="form-group col-md-12">
+						<label >Selecione um laboratório</label>
+						<select  class="form-control" >
+							<option jsf:value="#{equipamentoBean.equipamento.codLaboratorio}">#{equipamentoBean.equipamento.codLaboratorio}</option>
+						</select>
+					</div>
+                </div>
+                <div class="form-row">
+                	<div class="form-group col-md-12">
+						<input class="form-control" jsf:id="descricao" type="text" jsf:value="#{equipamentoBean.equipamento.descricao}" placeholder="Esreva uma descrição sobre este equipamento" />
+                	</div>
+                </div>
+                
+                <div class="form-row">
+	                <button class="btn btn-primary" jsf:action="#{equipamentoBean.alterarEquipamento()}">Alterar</button>
+                </div>
+                
+            </form>
+            
+            <input  type="text" jsf:value="#{equipamentoBean.equipamento.codEquipamento}"/>
+            <input  type="text" jsf:value="#{equipamentoBean.equipamento.tipo}"/>
+            <input  type="text" jsf:value="#{equipamentoBean.equipamento.codLaboratorio}"/>
+            <input  type="text" jsf:value="#{equipamentoBean.equipamento.descricao}"/>
+            
+
+			
+        </div>
+
+     </body>
+</html>

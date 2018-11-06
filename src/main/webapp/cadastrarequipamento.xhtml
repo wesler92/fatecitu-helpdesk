@@ -1,52 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
+<html lang="pt-br" 
+        xmlns="http://www.w3.org/1999/xhtml" 
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+        xmlns:jsf="http://xmlns.jcp.org/jsf"
+        xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head jsf:id="head">
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-        <title>Cadastro Equipamento</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+        <title>Cadastrar Equipamento - Helpdesk</title>
     </head>
-    <body>
-        <div class="p-4" >
-            <form>
-                    <div class="form-row">
-                            <div class="form-group col-md-3">
-                              <label >Código do equipamento</label>
-                              <input name="codigo" value="#{EquipamentoBean.equipamento.codEquipamento}" type="text"  class="form-control" placeholder="Código do equipamento"/>
-                            </div>
-                            <div class="form-group col-md-3">
-                              <label >Tipo do equipamento</label>
-                              <input name="tipo" value="#{EquipamentoBean.equipamento.tipo}" type="text"  class="form-control" placeholder="Tipo do equipamento"/>
-                            </div>
-							<div class="form-group col-md-6">
-								<label >Selecione um laboratório</label>
-								<select name="inputState" class="form-control">
-										<option >Choose...</option>
-										<option>...</option>
-								</select>
-                            </div>
-                    </div>
-					<div class="form-row">
-							<div class="form-group col-md-12">
-                              <label >Sugira uma descrição para este equipamento</label>
-                              <textarea name="descricao" value="#{EquipamentoBean.equipamento.descricao}" type="text"  class="form-control" placeholder="Descrição do equipamento"></textarea>
-                            </div>
+    <body jsf:id="body">
+        <div class="container">
+            <form jsf:id="form">
+            	<div class="form-row">
+	                <div class="form-group col-md-6">
+	                	<label for="codigo">Código do equipamento</label>
+	                	<input class="form-control" jsf:id="codigo" type="text" jsf:value="#{equipamentoBean.equipamento.codEquipamento}" placeholder="Código do equipamento" />
+                	</div>
+                	<div class="form-group col-md-6">
+	                	<label for="tipo">Tipo do equipamento</label>
+	                	<input class="form-control" jsf:id="tipo" type="text" jsf:value="#{equipamentoBean.equipamento.tipo}" placeholder="PC" />
+                	</div>
+                	
+                </div>
+                <div class="form-row">
+                	<div class="form-group col-md-12">
+						<label >Selecione um laboratório</label>
+						<select  class="form-control" >
+							<option jsf:value="#{equipamentoBean.equipamento.codLaboratorio}">#{equipamentoBean.equipamento.codLaboratorio}</option>
+						</select>
 					</div>
-                    <div class="form-row">
-                            
-                    </div>
-                     <button type="submit" class="btn btn-primary" action="#{EquipamentoBean.cadastrarEquipamento()}" >Enviar</button>
+                </div>
+                <div class="form-row">
+                	<div class="form-group col-md-12">
+						<input class="form-control" jsf:id="descricao" type="text" jsf:value="#{equipamentoBean.equipamento.descricao}" placeholder="Esreva uma descrição sobre este equipamento" />
+                	</div>
+                </div>
+                
+                <div class="form-row">
+	                <button class="btn btn-primary" jsf:action="#{equipamentoBean.cadastrarEquipamento()}" update="@form">Cadastrar</button>
+                </div>
+                
             </form>
+            
+            <input  type="text" jsf:value="#{equipamentoBean.equipamento.codEquipamento}"/>
+            <input  type="text" jsf:value="#{equipamentoBean.equipamento.tipo}"/>
+            <input  type="text" jsf:value="#{equipamentoBean.equipamento.codLaboratorio}"/>
+            <input  type="text" jsf:value="#{equipamentoBean.equipamento.descricao}"/>
+            
+
+			
         </div>
-    </body>
+
+     </body>
 </html>
+
