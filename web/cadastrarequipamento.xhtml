@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastrar Equipamentos</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:toolbarGroup>
+                <p:commandButton value="Cadastrar" action="#{equipamentoBean.addCodEquipamento()}" update="@form"></p:commandButton>
+            </p:toolbarGroup>
+            <p:panelGrid columns="2">
+                <h:outputLabel for="codEquipamento" value="Código do euipamento"></h:outputLabel>
+                <p:inputText id="codEquipametno" value="#{equipamentoBean.equipamento.codEquipamento}"></p:inputText>
+
+                <h:outputLabel for="tipo" value="Tipo"></h:outputLabel>
+                <p:inputText id="tipo" value="#{equipamentoBean.equipamento.tipo}"></p:inputText>
+
+                <h:outputLabel for="codLaboratorio" value="Código do laborátório"></h:outputLabel>
+                <p:inputText id="codLaboratorio" value="#{equipamentoBean.equipamento.codLaboratorio}"></p:inputText>
+
+                <h:outputLabel for="descricao" value="Descrição"></h:outputLabel>
+                <p:inputText id="descricao" style="height:60px" value="#{equipamentoBean.equipamento.descricao}"></p:inputText>
+            </p:panelGrid>
+            
+            <p:dataTable value="#{equipamentoBean.equipamentos}" var="equipamento">
+                <p:column headerText="Código Equipamento">
+                    <h:outputText value="#{equipamento.codEquipamento}"></h:outputText>
+                </p:column>
+                
+                <p:column headerText="Tipo">
+                    <h:outputText value="#{equipamento.tipo}"></h:outputText>
+                </p:column>
+                
+                <p:column headerText="Código Laboratório">
+                    <h:outputText value="#{equipamento.codLaboratorio}"></h:outputText>
+                </p:column>
+                
+                <p:column headerText="Descrição">
+                    <h:outputText value="#{equipamento.descricao}"></h:outputText>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
